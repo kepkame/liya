@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+@import 'abstracts/variables';
+@import 'abstracts/placeholders';
+
+// General project template
+@import 'base/normalize';
+@import 'base/typography';
+@import 'base/base'; // Other global styles (h1, ul, visually-hidden, etc.)
+
+// Small components
+@import 'components/badges';
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/mini-cart';
+@import 'components/mobile-menu';
+@import 'components/navigation';
+@import 'components/portfolio';
+@import 'components/slick';
+@import 'components/sliders';
+@import 'components/socials';
+
+// Styles involved in creating a site layout
+@import 'layout/header';
+
+// Page styles
+@import 'pages/home';

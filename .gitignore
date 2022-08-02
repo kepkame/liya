@@ -1,0 +1,5 @@
+node_modules/
+.editorconfig
+library.html
+package-lock.json
+slider-code-draft.txt

@@ -1,0 +1,40 @@
+// Badges
+
+.badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: $color-white;
+    background-color: $color-primary;
+    padding: 4px 8px;
+}
+
+a.badge {
+    text-decoration: none;
+
+    &:focus,
+    &:hover,
+    &:active {
+        text-decoration: none;
+        color: $color-white;
+
+        &.btn--disabled {
+            background-color: $color-mist-25;
+        }
+    }
+
+    &:hover {
+        background-color: $color-primary-hover;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:active {
+        background-color: $color-primary-touch;
+    }
+}

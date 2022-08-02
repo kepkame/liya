@@ -1,0 +1,169 @@
+// Base styles
+
+html, body {
+    font-family: $ff-primary;
+    color: $color-mist-100;
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    // background-color: mix(saturate($color-primary, 12), #ffffff, 60);
+    background-color: $color-secondary-additional;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $ff-title;
+    font-weight: 400;
+    color: $color-mist-100;
+}
+
+h1 {
+    font-size: 32px;
+    line-height: 40px;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 40px;
+
+    &.uppercase {
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+}
+
+h3,
+.card-header {
+    font-size: 24px;
+    line-height: 32px;
+}
+
+h4 {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+h5,
+h6 {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+p {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    margin: 8px 0;
+
+    &.bold {
+        font-weight: 700;
+    }
+
+    &.uppercase {
+        text-transform: uppercase;
+    }
+}
+
+a {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: $color-mist-100;
+
+    &:focus,
+    &:hover {
+        text-decoration: underline;
+        color: $color-primary-hover;
+    }
+
+    &:active {
+        text-decoration: underline;
+        color: $color-primary-touch;
+    }
+}
+
+.body-fixed {
+    overflow: hidden;
+}
+
+.container {
+    margin-right: 12px;
+    margin-left: 12px;
+}
+
+.site-content:focus {
+    outline: none;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    bottom: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+@media screen and (min-width: 850px) {
+    h1 {
+        font-size: 60px;
+        line-height: 80px;
+    }
+    
+    h2 {
+        font-size: 48px;
+        line-height: 64px;
+    
+        &.uppercase {
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+    }
+    
+    h3 {
+        font-size: 36px;
+        line-height: 48px;
+    }
+    
+    h4,
+    .card-header {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    
+    h5 {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    
+    h6 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    .container {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 24px;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (min-width: 900px) {
+}

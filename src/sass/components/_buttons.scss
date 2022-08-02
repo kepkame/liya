@@ -1,0 +1,250 @@
+// Buttons
+
+.btn {
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    line-height: 16px;
+    font-family: $ff-primary;
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: $color-white;
+    background-color: $color-primary;
+    box-sizing: border-box;
+    padding: 17px 32px 15px;
+    transition: color 0.15s ease-in-out, 
+                background-color 0.25s ease-in-out, 
+                border-color 0.25s ease-in-out;
+    cursor: pointer;
+
+    &:focus,
+    &:hover,
+    &:active {
+        text-decoration: none;
+        color: $color-white;
+
+        &.btn--disabled {
+            background-color: $color-mist-25;
+        }
+    }
+
+    &:hover {
+        background-color: $color-primary-hover;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:active {
+        background-color: $color-primary-touch;
+    }
+
+    // Disabled
+    &.btn--disabled {
+        background-color: $color-mist-25;
+        cursor: default;
+    }
+
+    // Arrow
+    &.btn--arrow {
+
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: nowrap;
+
+        span {
+            display: inline-block;
+            line-height: 16px;
+        }
+
+        svg {
+            position: relative;
+            width: 16px;
+            height: 16px;
+            margin-left: 8px;
+        }
+
+        path {
+            fill: $color-white;
+        }
+    }
+}
+
+// Button outline
+.btn.btn--outline {
+    color: $color-primary;
+    background-color: $color-white;
+    border: 1px solid $color-primary;
+    padding: 14px 31px 15px;
+
+    span {
+        margin-top: 1px;
+    }
+
+    // &:focus,
+    &:hover,
+    &:active {
+        color: $color-white;
+        
+        path {
+            fill: $color-white;
+        }
+    }
+
+    // &:focus,
+    &:hover {
+        background-color: $color-primary-hover;
+        border-color: $color-primary-hover;
+    }
+    
+    &:active {
+        background-color: $color-primary-touch;
+        border-color: $color-primary-touch;
+    }
+
+    // Disabled
+    &.btn--disabled {
+        color: $color-mist-25;
+        background-color: $color-white;
+        border: 1px solid $color-mist-25;
+    }
+
+    // Arrow
+    &.btn--arrow {
+    
+        path {
+            fill: $color-primary;
+            transition: fill 0.15s ease-in-out;
+        }
+
+        &:hover path,
+        &:active path {
+            fill: $color-white;
+        }
+
+        &.btn--disabled {
+        
+            path {
+                fill: $color-mist-25;
+            }
+
+            &:focus,
+            &:hover,
+            &:active {
+                background-color: $color-white;
+            }
+        }
+    }
+}
+
+// Tag <button>
+button.btn {
+    border: none;
+}
+
+/**
+ * Navigation button
+ */
+.btn-nav-list {
+    display: none;
+}
+
+.btn-nav {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0;
+    transition: color 0.15s ease-in-out, 
+                background-color 0.25s ease-in-out, 
+                border-color 0.25s ease-in-out;
+    cursor: pointer;
+
+    & + & {
+        margin-left: 8px;
+    }
+
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &.btn-nav--prev,
+    &.btn-nav--next {
+        position: relative;
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            transform-origin: center;
+        }
+    }
+
+    &.btn-nav--prev:after {
+        left: calc(50% + 3px);
+        border-top: 1px solid $color-secondary;
+        border-left: 1px solid $color-secondary;
+        border-radius: 0;
+        border-top-right-radius: 2px;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        transition: border-color 0.15s ease-in-out, 
+    }
+
+    &.btn-nav--next:after {
+        left: calc(50% - 3px);
+        border-top: 1px solid $color-secondary;
+        border-right: 1px solid $color-secondary;
+        border-radius: 0;
+        border-top-right-radius: 2px;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus,
+    &:hover,
+    &:active {
+        
+        &.btn-nav--prev:after,
+        &.btn-nav--next:after {
+            border-color: $color-white;
+        }
+    }
+
+    &:focus,
+    &:hover {
+        background-color: $color-secondary-hover;
+        border-color: $color-secondary-hover;
+        
+    }
+
+    &:active {
+        background-color: $color-secondary-touch;
+        border-color: $color-secondary-touch;
+    }
+}
+
+// Navigation buttons - Outline
+.btn-nav--outline {
+    border: 1px solid $color-secondary;
+}
+
+@media screen and (min-width: 450px) {
+    .btn.btn--outline {
+        width: max-content;
+    }
+}

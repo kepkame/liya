@@ -1,0 +1,41 @@
+// Forms
+
+input,
+textarea {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: $color-mist-100;
+    background-color: $color-white;
+    border: 1px solid $color-mist-25;
+    padding: 8px;
+    box-sizing: border-box;
+
+    &::placeholder {
+        color: $color-mist-25;
+    }
+
+    &:hover {
+        border-color: $color-primary-hover;
+    }
+
+    &:focus {
+        border-color: $color-primary;
+        outline: none;
+    }
+
+    &:disabled {
+        color: $color-mist-25;
+        background-color: $color-mist-5;
+        border-color: inherit;
+    }
+
+    &.error {
+        border-color: $color-error;
+
+        &:focus,
+        &:hover {
+            border-color: inherit;
+        }
+    }
+}

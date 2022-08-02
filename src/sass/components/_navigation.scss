@@ -1,0 +1,221 @@
+// Navigation
+
+// Tag <nav>
+.site-navigation {
+    border-bottom: 1px solid $color-bg-additional;
+    margin: 16px 0;
+    padding-bottom: 16px;
+}
+
+// Menu list
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item {
+    position: relative;
+
+    // Parent menu items
+    &.menu-item-has-children + & {
+        margin-top: 16px;
+    }
+}
+
+// Links. Tag <a>
+.nav-top-link {
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    line-height: 24px;
+    text-decoration: none;
+
+    &:focus {
+        color: $color-mist-100;
+        outline: none;
+    }
+
+    &:hover {
+        color: $color-primary;
+        text-decoration: none;
+    }
+
+    &:active {
+        color: $color-primary-touch;
+    }
+
+    // Link with submenu
+    .menu-item-has-children > & {
+        position: relative;
+        letter-spacing: 0.1em;
+        line-height: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 8px;
+        padding-right: 20px;
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            width: 4px;
+            height: 4px;
+            border-top: 1px solid $color-mist-100;
+            border-left: 1px solid $color-mist-100;
+            transform: translateY(-70%) rotate(-135deg);
+            transition: transform 0.25s ease;
+        }
+
+        &:hover:after  {
+            border-top-color: $color-primary;
+            border-left-color: $color-primary;
+        }
+    }
+
+    // Show a submenu animation
+    .menu-item-has-children--show > & {
+        color: $color-primary;
+
+        &:after {
+            border-top-color: $color-primary;
+            border-left-color: $color-primary;
+            transform: translateY(-30%) rotate(-315deg);
+        }
+    }
+
+    // Hiding a submenu animation
+    .menu-item-has-children--hide &:after {
+        border-top-color: $color-mist-100;
+        border-left-color: $color-mist-100;
+        transform: translateY(-70%) rotate(-135deg);
+    }
+}
+
+// Submenu
+.sub-menu {
+    list-style: none;
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transition: max-height 0.35s ease, 
+                margin 0.25s ease, 
+                opacity 0.35s ease;
+
+    .menu-item {
+        display: none;
+        padding-left: 8px;
+    }
+
+    .menu-item + .menu-item {
+        margin-top: 8px;
+    }
+
+    .menu-item-has-children--show & {
+        max-height: 500px;
+        margin-top: 8px;
+        opacity: 1;
+
+        .menu-item {
+            display: block;
+        }
+    }
+
+    .menu-item-has-children--hide & {
+        max-height: 0;
+        margin-top: 0;
+        opacity: 0;
+    }
+}
+
+@media (min-width: 850px) {
+    .site-navigation {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin: 0;
+    }
+
+    .nav-menu {
+        
+    }
+
+    .menu-item {
+        display: inline-block;
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        &.menu-item-has-children + & {
+            margin-top: 0;
+        }
+
+        &.current-menu-item {
+            border-bottom: 1px solid $color-primary;
+        }
+    }
+
+    .menu-item-has-children:hover .sub-menu {
+        display: block;
+        position: absolute;
+        top: 93px;
+        right: -24px;
+        max-height: none;
+        background-color: $color-bg;
+        padding: 24px;
+        opacity: 1;
+        box-shadow: 0px 18px 32px rgba($color-mist-100, 0.12);
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: -8px;
+            right: calc(50% - 8px);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid $color-bg;
+        }
+
+        // Submenu item
+        .menu-item {
+            display: block;
+        }
+    }
+
+    .menu-item--shop:hover .sub-menu:after {
+        right: 85px;
+    }
+
+    .nav-top-link {
+        white-space: nowrap;
+
+        .menu-item-has-children > & {
+            padding-right: 28px;
+
+            &:after {
+                right: 16px;
+            }
+        }
+
+        .menu-item-has-children.current-menu-item & {
+            color: $color-primary;
+            
+            &:after {
+                right: 16px;
+                border-top: 1px solid $color-primary;
+                border-left: 1px solid $color-primary;
+            }
+        }
+    }
+
+    .sub-menu {
+        display: block;
+
+        .menu-item {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+}
